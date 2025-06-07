@@ -140,12 +140,13 @@ struct ContentView: View {
                 // Time for next gong
                 currentGong += 1
                 
-                if currentGong < numberOfGongs {
+                if currentGong < numberOfGongs - 1{
                     // Play regular gong and reset timer
                     playGong()
                     timeRemaining = intervalMinutes * 60
                 } else {
                     // Session complete
+                    playGong()
                     stopSession()
                 }
             }
