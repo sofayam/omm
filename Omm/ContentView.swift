@@ -1,5 +1,6 @@
 import SwiftUI
 import AVFoundation
+import UIKit
 
 struct ContentView: View {
     @State private var numberOfGongs = 3
@@ -89,7 +90,6 @@ struct ContentView: View {
                         .cornerRadius(10)
                 }
                 
-                
             }
             .padding()
             .navigationBarHidden(true)
@@ -102,7 +102,7 @@ struct ContentView: View {
     
     func setupAudio() {
         do {
-            try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default)
+            try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default, options: [.mixWithOthers])
             try AVAudioSession.sharedInstance().setActive(true)
             
             // Setup regular gong sound
@@ -129,6 +129,9 @@ struct ContentView: View {
         currentGong = 0
         timeRemaining = intervalMinutes * 60
         
+        // Keep screen awake during meditation
+        UIApplication.shared.isIdleTimerDisabled = true
+        
         // Play first gong immediately
         playGong()
         
@@ -140,12 +143,12 @@ struct ContentView: View {
                 // Time for next gong
                 currentGong += 1
                 
-                if currentGong < numberOfGongs - 1{
+                if currentGong < numberOfGongs - 1 {
                     // Play regular gong and reset timer
                     playGong()
                     timeRemaining = intervalMinutes * 60
                 } else {
-                    // Session complete
+                    // Play final gong and end session immediately
                     playGong()
                     stopSession()
                 }
@@ -159,6 +162,9 @@ struct ContentView: View {
         timer = nil
         currentGong = 0
         timeRemaining = 0
+        
+        // Allow screen to sleep again
+        UIApplication.shared.isIdleTimerDisabled = false
     }
     
     func playGong() {
@@ -187,5 +193,4 @@ struct ContentView_Previews: PreviewProvider {
         ContentView()
     }
 }
-
 
