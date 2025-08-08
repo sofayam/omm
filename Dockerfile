@@ -19,8 +19,8 @@ COPY server.js .
 # Set the default audio file path environment variable
 ENV AUDIO_FILE_PATH /usr/src/app/audio/music.mp3
 
-# Expose port 3000
-EXPOSE 3000
+# Expose port 8020
+EXPOSE 8020
 
 # Define the command to run your app
 CMD [ "node", "server.js" ]

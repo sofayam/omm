@@ -1,6 +1,19 @@
-node_modules
-npm-debug.log
+# Docker and Git
 Dockerfile
+.dockerignore
 .git
 .gitignore
-background.mp3
+
+# Node.js
+node_modules
+npm-debug.log
+
+# macOS
+.DS_Store
+
+# Xcode Project & Swift Source
+Omm/
+Omm.xcodeproj/
+
+# Local audio files
+*.mp3
