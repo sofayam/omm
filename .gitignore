@@ -1,0 +1,27 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Xcode
+## Build generated
+build/
+DerivedData/
+
+## Various settings
+*.xcodeproj/project.xcworkspace/
+*.xcodeproj/xcuserdata/
+*.xcworkspace/xcshareddata/
+*.xcworkspace/xcuserdata/
+
+## Swift Package Manager
+.swiftpm/
+Package.resolved
+
+# Node.js
+node_modules/
+npm-debug.log*
+yarn-error.log
+
+# Project-specific
+background.mp3
