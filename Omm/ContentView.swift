@@ -14,7 +14,7 @@ struct ContentView: View {
     @State private var streamPlayer: AVPlayer?
     @State private var showingAlert = false
     @State private var alertMessage = ""
-    private let streamURL = "http://air.local:3000/stream"
+    private let streamURL = "http://rpm17.tail8a2664.ts.net:8020/stream"
     @State private var isStreamPlaying = false
     @State private var streamVolume: Double = 0.5
     @State private var volumeFadeTimer: Timer?
